@@ -112,16 +112,16 @@ def time_stats(df):
 
     # display the most common month
     popular_month = df['month'].mode()[0]
-    print ('Most common month is:', popular_month)
+    print ('Most common month is:{}'.format(popular_month))
 
     # display the most common day of week
     popular_day = df['day_of_week'].mode()[0]
-    print ('Most common day of week is:', popular_day)
+    print ('Most common day of week is:{}'.format(popular_day))
 
     # display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
     popular_hour = df['hour'].mode()[0]
-    print ('Most common start hour is:',popular_hour)
+    print ('Most common start hour is:{}'.format(popular_hour))
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -134,11 +134,11 @@ def station_stats(df):
 
     # display most commonly used start station
     popular_start_station = df['Start Station'].mode()[0]
-    print ('Most commonly used Start Station is: ', popular_start_station)
+    print ('Most commonly used Start Station is: {}'.format(popular_start_station))
 
     # display most commonly used end station
     popular_end_station = df['End Station'].mode()[0]
-    print ('Most commonly used End Station is: ', popular_end_station)
+    print ('Most commonly used End Station is: {}'.format(popular_end_station))
 
 
     # display most frequent combination of start station and end station trip
@@ -186,8 +186,8 @@ def user_stats(df):
     if 'Gender' in df.columns:
         count_male = (df['Gender'] == 'Male').sum()
         count_female = (df['Gender'] == 'Female').sum()
-        print('\nThe count of male is: ', count_male)
-        print('\nThe count of female is: ', count_female)
+        print('\nThe count of male is: {}'.format(count_male))
+        print('\nThe count of female is:{}'.format(count_female))
     else:
         print('The customer gender is not available for this city')
 
@@ -196,9 +196,9 @@ def user_stats(df):
         b_early = int(df['Birth Year'].min())
         b_recent = int(df['Birth Year'].max())
         b_common = int(df['Birth Year'].mode())
-        print('\nThe earliest year of birth: ', b_early)
-        print('\nThe most recent year of birth: ', b_recent)
-        print('\nThe most common year of birth: ', b_common)
+        print('\nThe earliest year of birth:{}'.format(b_early))
+        print('\nThe most recent year of birth:{}'.format(b_recent))
+        print('\nThe most common year of birth:{}'.format(b_common))
     else:
         print('Year of birth is not available for this city')
 
